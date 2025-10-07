@@ -1,43 +1,52 @@
-let timer;
+let timerDisplay = document.getElementById("timer");
+let interval;
 let seconds = 0;
 
-function updateDisplay() {
-    const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
-    const secs = String(seconds % 60).padStart(2, '0');
-    document.getElementById('timer').textContent = `${mins}:${secs}`;
-}
-
-function bounceKnobs() {
-    const knobs = document.querySelectorAll('.knob');
-    knobs.forEach(knob => {
-        knob.classList.remove('bounce'); // Reset animation
-        void knob.offsetWidth; // Trigger reflow to restart animation
-        knob.classList.add('bounce');
-    });
-}
-
 function startTimer() {
-    if (!timer) {
-        document.getElementById('timer').classList.add('running');
-        bounceKnobs();
-        timer = setInterval(() => {
-            seconds++;
-            updateDisplay();
-        }, 1000);
-    }
+  if (!interval) {
+    interval = setInterval(() => {
+      seconds++;
+      let mins = Math.floor(seconds / 60);
+      let secs = seconds % 60;
+      timerDisplay.textContent =
+        `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    }, 1000);
+    timerDisplay.classList.add("running");
+  }
 }
 
 function stopTimer() {
-    clearInterval(timer);
-    timer = null;
-    document.getElementById('timer').classList.remove('running');
+  clearInterval(interval);
+  interval = null;
+  timerDisplay.classList.remove("running");
 }
 
 function resetTimer() {
-    stopTimer();
-    seconds = 0;
-    updateDisplay();
-    bounceKnobs();
+  stopTimer();
+  seconds = 0;
+  timerDisplay.textContent = "00:00";
 }
 
-updateDisplay(); // Initial display
+// Clock
+const clockDisplay = document.getElementById("clock");
+if (clockDisplay) {
+  function updateClock() {
+    const now = new Date();
+    const hrs = now.getHours().toString().padStart(2, "0");
+    const mins = now.getMinutes().toString().padStart(2, "0");
+    const secs = now.getSeconds().toString().padStart(2, "0");
+    clockDisplay.textContent = `${hrs}:${mins}:${secs}`;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+}
+
+// Navbar toggle
+const mobileMenu = document.getElementById("mobile-menu");
+const navMenu = document.querySelector(".nav-menu");
+
+if (mobileMenu) {
+  mobileMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+}
