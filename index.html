@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Stopwatch</title>
+  <title>Stopwatch</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">TimerApp</div>
+      <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+      <ul class="nav-menu">
+        <li><a href="clock.html">Clock</a></li>
+        <li><a href="index.html" class="active">Stopwatch</a></li>
+        
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <div class="stopwatch">
@@ -25,5 +35,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
