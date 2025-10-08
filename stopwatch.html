@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimerApp — Stopwatch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">TimerApp</div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Clock</a></li>
+        <li><a href="stopwatch.html" class="active">Stopwatch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container grid-layout">
+    <section class="left-col">
+      <div class="stopwatch big">
+        <div class="timer" id="timer">00:00.00</div>
+      </div>
+
+      <div class="buttons">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="resetBtn">Reset</button>
+        <button id="saveBtn">Save</button>
+      </div>
+    </section>
+
+    <aside class="right-col">
+      <h3>Saved Times</h3>
+
+      <ul id="savedList" class="checkpoint-list"></ul><br>
+      <div id="no-saves" class="meta small">No saved times yet.</div>
+      <button id="clearAllBtn" class="clear-btn">Clear All</button>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
