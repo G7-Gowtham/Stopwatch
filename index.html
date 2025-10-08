@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stopwatch</title>
+  <title>TimerApp — Clock</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">TimerApp</div>
-      <div class="menu-toggle" id="mobile-menu">&#9776;</div>
       <ul class="nav-menu">
-        <li><a href="clock.html">Clock</a></li>
-        <li><a href="index.html" class="active">Stopwatch</a></li>
-        
+        <li><a href="index.html" class="active">Clock</a></li>
+        <li><a href="stopwatch.html">Stopwatch</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="container">
-    <div class="stopwatch">
-      <div class="knob knob-left"></div>
-      <div class="knob knob-right"></div>
-      <div class="timer" id="timer">00:00</div>
-    </div>
-    <div class="buttons">
-      <button onclick="startTimer()">Start</button>
-      <button onclick="stopTimer()">Stop</button>
-      <button onclick="resetTimer()">Reset</button>
-    </div>
-  </div>
+  <main class="container center-stack">
+    <section class="clock-panel">
+      <div class="stopwatch clock-display">
+        <div class="timer" id="clock">00:00:00</div>
+      </div>
+      <p class="meta">Local digital clock — updates every second</p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
+
 </html>
